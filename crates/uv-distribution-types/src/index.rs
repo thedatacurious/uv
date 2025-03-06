@@ -4,7 +4,7 @@ use std::str::FromStr;
 use thiserror::Error;
 use url::Url;
 
-use uv_auth::Credentials;
+use uv_auth::{AuthPolicy, Credentials};
 
 use crate::index_name::{IndexName, IndexNameError};
 use crate::origin::Origin;
@@ -104,31 +104,6 @@ pub struct Index {
     /// ```
     #[serde(default)]
     pub auth_policy: AuthPolicy,
-}
-
-#[derive(
-    Copy, Clone, Debug, Default, Hash, Eq, PartialEq, serde::Serialize, serde::Deserialize,
-)]
-#[serde(rename_all = "kebab-case")]
-#[cfg_attr(feature = "schemars", derive(schemars::JsonSchema))]
-pub enum AuthPolicy {
-    /// Authenticate only when necessary.
-    #[default]
-    Auto,
-    /// Always authenticate.
-    Always,
-    /// Never authenticate.
-    Never,
-}
-
-impl From<AuthPolicy> for uv_auth::AuthPolicy {
-    fn from(item: AuthPolicy) -> Self {
-        match item {
-            AuthPolicy::Always => uv_auth::AuthPolicy::Always,
-            AuthPolicy::Auto => uv_auth::AuthPolicy::Auto,
-            AuthPolicy::Never => uv_auth::AuthPolicy::Never,
-        }
-    }
 }
 
 // #[derive(

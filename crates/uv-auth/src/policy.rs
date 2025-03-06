@@ -1,14 +1,18 @@
 use rustc_hash::FxHashMap;
 use url::Url;
 
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq)]
+#[derive(
+    Copy, Clone, Debug, Default, Hash, Eq, PartialEq, serde::Serialize, serde::Deserialize,
+)]
+#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "schemars", derive(schemars::JsonSchema))]
 pub enum AuthPolicy {
-    /// Try an unauthenticated request. If that fails, try an authenticated request.
+    /// Authenticate only when necessary.
     #[default]
     Auto,
-    /// Always attempt to authenticate.
+    /// Always authenticate.
     Always,
-    /// Never attempt to authenticate.
+    /// Never authenticate.
     Never,
 }
 
