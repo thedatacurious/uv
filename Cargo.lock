@@ -4602,7 +4602,6 @@ dependencies = [
  "rustc-hash",
  "schemars",
  "serde",
- "serde_json",
  "tempfile",
  "test-log",
  "tokio",
