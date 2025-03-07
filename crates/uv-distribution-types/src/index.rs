@@ -128,7 +128,7 @@ impl Index {
             default: true,
             origin: None,
             publish_url: None,
-            authentication: AuthPolicy::Auto,
+            authentication: AuthPolicy::default(),
         }
     }
 
@@ -141,7 +141,7 @@ impl Index {
             default: false,
             origin: None,
             publish_url: None,
-            authentication: AuthPolicy::Auto,
+            authentication: AuthPolicy::default(),
         }
     }
 
@@ -154,7 +154,7 @@ impl Index {
             default: false,
             origin: None,
             publish_url: None,
-            authentication: AuthPolicy::Auto,
+            authentication: AuthPolicy::default(),
         }
     }
 
@@ -228,7 +228,7 @@ impl FromStr for Index {
                     default: false,
                     origin: None,
                     publish_url: None,
-                    authentication: AuthPolicy::Auto,
+                    authentication: AuthPolicy::default(),
                 });
             }
         }
@@ -242,7 +242,7 @@ impl FromStr for Index {
             default: false,
             origin: None,
             publish_url: None,
-            authentication: AuthPolicy::Auto,
+            authentication: AuthPolicy::default(),
         })
     }
 }
