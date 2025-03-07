@@ -10195,7 +10195,7 @@ fn add_unsupported_git_scheme() {
     "###);
 }
 
-/// In auth-policy "always", the normal authentication flow should still work.
+/// In authentication "always", the normal authentication flow should still work.
 #[test]
 fn add_auth_policy_always_with_credentials() -> Result<()> {
     let context = TestContext::new("3.12");
@@ -10211,7 +10211,7 @@ fn add_auth_policy_always_with_credentials() -> Result<()> {
         [[tool.uv.index]]
         name = "my-index"
         url = "https://pypi-proxy.fly.dev/basic-auth/simple"
-        auth-policy = "always"
+        authentication = "always"
         default = true
         "#
     })?;
@@ -10237,7 +10237,7 @@ fn add_auth_policy_always_with_credentials() -> Result<()> {
     Ok(())
 }
 
-/// In auth-policy "always", unauthenticated requests to a registry that
+/// In authentication "always", unauthenticated requests to a registry that
 /// doesn't require credentials will fail.
 #[test]
 fn add_auth_policy_always_without_credentials() -> Result<()> {
@@ -10254,7 +10254,7 @@ fn add_auth_policy_always_without_credentials() -> Result<()> {
         [[tool.uv.index]]
         name = "my-index"
         url = "https://pypi.org/simple"
-        auth-policy = "always"
+        authentication = "always"
         default = true
         "#
     })?;
@@ -10272,7 +10272,7 @@ fn add_auth_policy_always_without_credentials() -> Result<()> {
     Ok(())
 }
 
-/// In auth-policy "never", even if the correct credentials are supplied
+/// In authentication "never", even if the correct credentials are supplied
 /// in the URL, no authenticated requests will be allowed.
 #[test]
 fn add_auth_policy_never_with_url_credentials() -> Result<()> {
@@ -10289,7 +10289,7 @@ fn add_auth_policy_never_with_url_credentials() -> Result<()> {
         [[tool.uv.index]]
         name = "my-index"
         url = "https://public:heron@pypi-proxy.fly.dev/basic-auth/simple"
-        auth-policy = "never"
+        authentication = "never"
         default = true
         "#
     })?;
@@ -10308,7 +10308,7 @@ fn add_auth_policy_never_with_url_credentials() -> Result<()> {
     Ok(())
 }
 
-/// In auth-policy "never", even if the correct credentials are supplied
+/// In authentication "never", even if the correct credentials are supplied
 /// via env vars, no authenticated requests will be allowed.
 #[test]
 fn add_auth_policy_never_with_env_var_credentials() -> Result<()> {
@@ -10325,7 +10325,7 @@ fn add_auth_policy_never_with_env_var_credentials() -> Result<()> {
         [[tool.uv.index]]
         name = "my-index"
         url = "https://pypi-proxy.fly.dev/basic-auth/simple"
-        auth-policy = "never"
+        authentication = "never"
         default = true
         "#
     })?;
@@ -10349,7 +10349,7 @@ fn add_auth_policy_never_with_env_var_credentials() -> Result<()> {
     Ok(())
 }
 
-/// In auth-policy "never", the normal flow for unauthenticated requests should
+/// In authentication "never", the normal flow for unauthenticated requests should
 /// still work.
 #[test]
 fn add_auth_policy_never_without_credentials() -> Result<()> {
@@ -10366,7 +10366,7 @@ fn add_auth_policy_never_without_credentials() -> Result<()> {
         [[tool.uv.index]]
         name = "my-index"
         url = "https://pypi.org/simple"
-        auth-policy = "never"
+        authentication = "never"
         default = true
         "#
     })?;
