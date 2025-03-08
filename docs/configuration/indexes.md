@@ -187,10 +187,10 @@ authenticated request:
 [[tool.uv.index]]
 name = "example"
 url = "https://example.com/simple"
-auth-condition = "always"
+auth-policy = "always"
 ```
 
-The following values are supported for `auth-condition`:
+The following values are supported for `auth-policy`:
 
 - `fallback` (default): First attempt an unauthenticated request. If that fails, search for
   credentials and attempt an authenticated request.
