@@ -7,9 +7,9 @@ use url::Url;
 #[serde(rename_all = "kebab-case")]
 #[cfg_attr(feature = "schemars", derive(schemars::JsonSchema))]
 pub enum AuthPolicy {
-    /// Authenticate only when necessary.
+    /// Try unauthenticated request. Fallback to authenticated request.
     #[default]
-    Auto,
+    Fallback,
     /// Always authenticate.
     Always,
     /// Never authenticate.
@@ -49,6 +49,6 @@ impl UrlAuthPolicies {
                 return *auth_policy;
             }
         }
-        AuthPolicy::Auto
+        AuthPolicy::Fallback
     }
 }
