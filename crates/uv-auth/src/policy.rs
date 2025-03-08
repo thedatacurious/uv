@@ -9,7 +9,7 @@ use url::Url;
 pub enum AuthPolicy {
     /// Try unauthenticated request. Fallback to authenticated request.
     #[default]
-    Fallback,
+    Auto,
     /// Always authenticate.
     Always,
     /// Never authenticate.
@@ -49,6 +49,6 @@ impl UrlAuthPolicies {
                 return *auth_policy;
             }
         }
-        AuthPolicy::Fallback
+        AuthPolicy::Auto
     }
 }
