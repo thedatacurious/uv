@@ -191,8 +191,8 @@ auth-policy = "always"
 
 The following values are supported for `auth-policy`:
 
-- `auto` (default): First attempt an unauthenticated request. If that fails, search for
-  credentials and attempt an authenticated request.
+- `auto` (default): First attempt an unauthenticated request. If that fails, search for credentials
+  and attempt an authenticated request.
 - `always`: Always search for credentials and attempt an authenticated request. If that fails, the
   request fails.
 - `never`: Only attempt an unauthenticated request. If that fails, the request fails.
