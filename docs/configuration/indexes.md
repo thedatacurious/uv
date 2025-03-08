@@ -180,8 +180,7 @@ access to the authenticated URL at installation time.
 By default, when sending requests to an index, uv will first attempt an unauthenticated request. If
 that fails, it will search for credentials and attempt an authenticated request.
 
-It is possible to change this default behavior for an index by providing the condition for trying an
-authenticated request:
+It is possible to change this default behavior for an index by providing an authentication policy:
 
 ```toml
 [[tool.uv.index]]
@@ -192,7 +191,7 @@ auth-policy = "always"
 
 The following values are supported for `auth-policy`:
 
-- `fallback` (default): First attempt an unauthenticated request. If that fails, search for
+- `auto` (default): First attempt an unauthenticated request. If that fails, search for
   credentials and attempt an authenticated request.
 - `always`: Always search for credentials and attempt an authenticated request. If that fails, the
   request fails.
