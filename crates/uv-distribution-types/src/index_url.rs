@@ -420,7 +420,7 @@ impl From<&IndexLocations> for UrlAuthPolicies {
                 .unwrap_or_else(|| index.url().url().clone());
             url.set_username("").ok();
             url.set_password(None).ok();
-            (url, index.authentication)
+            (url, index.auth_condition)
         }))
     }
 }

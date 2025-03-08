@@ -100,10 +100,10 @@ pub struct Index {
     /// [[tool.uv.index]]
     /// name = "my-index"
     /// url = "https://<omitted>/simple"
-    /// authentication = "always"
+    /// auth-condition = "always"
     /// ```
     #[serde(default)]
-    pub authentication: AuthPolicy,
+    pub auth_condition: AuthPolicy,
 }
 
 // #[derive(
@@ -128,7 +128,7 @@ impl Index {
             default: true,
             origin: None,
             publish_url: None,
-            authentication: AuthPolicy::default(),
+            auth_condition: AuthPolicy::default(),
         }
     }
 
@@ -141,7 +141,7 @@ impl Index {
             default: false,
             origin: None,
             publish_url: None,
-            authentication: AuthPolicy::default(),
+            auth_condition: AuthPolicy::default(),
         }
     }
 
@@ -154,7 +154,7 @@ impl Index {
             default: false,
             origin: None,
             publish_url: None,
-            authentication: AuthPolicy::default(),
+            auth_condition: AuthPolicy::default(),
         }
     }
 
@@ -228,7 +228,7 @@ impl FromStr for Index {
                     default: false,
                     origin: None,
                     publish_url: None,
-                    authentication: AuthPolicy::default(),
+                    auth_condition: AuthPolicy::default(),
                 });
             }
         }
@@ -242,7 +242,7 @@ impl FromStr for Index {
             default: false,
             origin: None,
             publish_url: None,
-            authentication: AuthPolicy::default(),
+            auth_condition: AuthPolicy::default(),
         })
     }
 }
